@@ -1,9 +1,9 @@
 <%= form_tag messages_path, method: :post, class: 'row' do %>
   <div class="input-field col s10">
     <%= text_area_tag 'message[content]', @message.content, id: 'comment', class: 'materialize-textarea' %>
-    <%= label_tag 'Commentez : ' %>
+    <%= label_tag 'Quoi de neuf ?' %>
   </div>
-  <%= submit_tag 'Save', for: 'comment', class: 'btn white-text col s2' %>
+  <%= submit_tag 'Tweeter', for: 'comment', class: 'btn blue white-text col s2' %>
 <% end %>
 
 <div class="row">

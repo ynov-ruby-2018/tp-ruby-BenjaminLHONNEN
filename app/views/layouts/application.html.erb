@@ -18,7 +18,8 @@
 <body>
 <nav>
   <div class="nav-wrapper">
-    <%= link_to root_path, class: 'brand-logo left' do %> <i class="fab fa-twitter white-text"></i> Twitter <%end %>
+    <%= link_to root_path, class: 'brand-logo left' do %> <i class="fab fa-twitter white-text"></i> Twitter
+    <% end %>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><%= link_to 'Accueil', root_path %></li>
       <li><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete %></li>
@@ -28,5 +29,23 @@
 <main>
   <%= yield %>
 </main>
+<div class="blue">
+  <div class="row">
+    <div class="col l6 s12">
+      <h5 class="white-text" style="text-align: right">
+        ©2018 Benjamin L'HONNEN
+      </h5>
+    </div>
+    <div class="col l6 s12">
+      <h5 class="white-text">Using</h5>
+      <ul>
+        <li><a class="grey-text text-lighten-4" target="_blank" href="https://materializecss.com/">Materialize</a></li>
+        <li><a class="grey-text text-lighten-4" target="_blank" href="https://fontawesome.com/?from=io">Font-Awesome</a></li>
+        <li><a class="grey-text text-lighten-4" target="_blank" href="https://fonts.google.com/">Google-Font</a></li>
+        <li><a class="grey-text text-lighten-4" target="_blank" href="https://rubyonrails.org/">Rails</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
 </body>
 </html>
