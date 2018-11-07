@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users
+
+  root to: 'messages#index'
+  post '/messages/like', to: 'messages#like', as: 'message_like'
+  post '/messages/dislike', to: 'messages#dislike', as: 'message_dislike'
+  resources :messages
+
 end
