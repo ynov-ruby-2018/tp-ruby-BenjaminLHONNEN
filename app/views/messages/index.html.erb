@@ -1,8 +1,9 @@
-
-
-<%= form_tag messages_path, method: :post, class: "row"  do %>
-  <%= text_area_tag 'message[content]', @message.content, class: 'materialize-textarea col s10' %>
-  <%= submit_tag 'Save', class: 'btn white-text col s2' %>
+<%= form_tag messages_path, method: :post, class: 'row' do %>
+  <div class="input-field col s10">
+    <%= text_area_tag 'message[content]', @message.content, id: 'comment', class: 'materialize-textarea' %>
+    <%= label_tag 'Commentez : ' %>
+  </div>
+  <%= submit_tag 'Save', for: 'comment', class: 'btn white-text col s2' %>
 <% end %>
 
 <div class="row">
@@ -10,16 +11,20 @@
     <div class="col s12">
       <div class="card card-relative">
         <div class="card-content">
-          <h5><%=message.user.email %></h5>
-          <h4><%=message.content %></h4>
+          <h5><%= message.user.email %></h5>
+          <h4><%= message.content %></h4>
           <div class="row like">
-            <%= form_tag message_like_path, method: :post, class: "col s6 row"  do %>
-              <%=hidden_field_tag 'like[message_id]', message.id %>
-              <%= button_tag '', class: 'btn green white-text col s12 flex flex-center' do%> <span class="fs-16"><%=message.likes.length %></span> <i class="fas fa-thumbs-up fs-16"></i><%end %>
+            <%= form_tag message_like_path, method: :post, class: 'col s6 row' do %>
+              <%= hidden_field_tag 'like[message_id]', message.id %>
+              <%= button_tag '', class: 'btn green white-text col s12 flex flex-center h40' do %>
+                <span class="fs-16"><%= message.likes.length %></span> <i class="fas fa-thumbs-up fs-16"></i>
+              <% end %>
             <% end %>
-            <%= form_tag message_dislike_path, method: :post, class: "col s6 row"  do %>
-              <%=hidden_field_tag 'dislike[message_id]', message.id %>
-              <%= button_tag '', class: 'btn red white-text col s12 flex flex-center' do %><span class="fs-16"><%=message.dislikes.length %></span> <i class="fas fa-thumbs-down fs-16"></i><%end %>
+            <%= form_tag message_dislike_path, method: :post, class: 'col s6 row' do %>
+              <%= hidden_field_tag 'dislike[message_id]', message.id %>
+              <%= button_tag '', class: 'btn red white-text col s12 flex flex-center h40' do %>
+                <span class="fs-16"><%= message.dislikes.length %></span> <i class="fas fa-thumbs-down fs-16"></i>
+              <% end %>
             <% end %>
           </div>
         </div>
