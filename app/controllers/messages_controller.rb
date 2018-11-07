@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
     @like = Like.new
     @dislike = Dislike.new
     if current_user
-      @messages = Message.last(20)
+      @messages = Message.last(20).reverse
     else
       redirect_to user_session_path
     end
@@ -29,22 +29,6 @@ class MessagesController < ApplicationController
     redirect_to root_path
   end
 
-  def edit
-    @post = Message.find(params[:id])
-  end
-
-  def update
-    @post = Message.find(params[:id])
-    @post.update_attributes(message_params)
-    redirect_to root_path
-  end
-
-  def destroy
-    @post = Message.find(params[:id])
-    @post.destroy
-    redirect_to root_path
-  end
-
   private
 
   def message_params
@@ -58,6 +42,7 @@ class MessagesController < ApplicationController
         :message_id
     )
   end
+
   def dislike_params
     params.require(:dislike).permit(
         :message_id
