@@ -1,3 +1,3 @@
 class Like < ApplicationRecord
-  belongs_to :message
+  belongs_to :message # Ok, techniquement, c'est juste. Etrange mais juste...
 end
