@@ -13,5 +13,7 @@ class MessagesMigration < ActiveRecord::Migration[5.2]
       t.timestamps
       t.integer :message_id
     end
+    
+    # Conception vraiment étrange, mais c'est bien fait et ça marche. Rien à dire.
   end
 end
